@@ -13,9 +13,8 @@ An Aircraft is assigned to a specific flight.
 A Booking connects a Passenger to a specific Flight.  
 
 Mapping Decisions :
-
-Looking at the project MAP.png, here is how the data is stored:
-Flight Connections: I put IATA_Code_Departs and IATA_Code_Arrives in the Flight table to show the start and end of a trip. 
+Flight Connections:
+I put IATA_Code_Departs and IATA_Code_Arrives in the Flight table to show the start and end of a trip. 
 
 Linking Everything:
 The Booking table uses National_ID and flight_number to link people to their flights.
