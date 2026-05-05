@@ -41,3 +41,41 @@ GROUP BY flight_number
 HAVING SUM(Price_Paid) > 500;
 
 This query is the most useful because it tells the airline which flights are making the most money. It helps them decide which routes are successful.
+
+
+# After Change Request – CR-001: Extended System Information
+
+1.Modified and New Tables:
+A.Modified Existing Tables:
+Flight: Modified using ALTER TABLE to add an Airline_ID. This  many-to-one relationship between flights and their operators, allowing the system to track which   airline is responsible for which flight.
+
+B.Newly Added Tables
+Airline_Operator: Stores  details of airlines.
+
+Departure_Gate: Tracks gate within specific airport terminals.
+
+Flight_Delay_Log: Captures data for every incident that causes a delay.
+
+Baggage: Links physical luggage to specific passenger bookings.
+
+3. Challenges in Altering Data-Rich Tables:
+Adding the Airline_ID to the Flight table after data was already inserted presented a common SQL challenge:
+
+A.Nullable Columns: When adding a new Foreign Key column to a table with existing rows, the column must initially allow NULL values (or have a default value). Otherwise, the ALTER TABLE statement would fail because existing rows wouldn't have an airline assigned yet.
+
+B.Referential Integrity: I had to ensure that the Airline_Operator table was populated before attempting to update the Flight table with Airline_ID values, or the constraints would have conflict error.
+
+
+4. Justification referential actions
+You used ON DELETE CASCADE for Baggage and Flight_Delay_Log.
+
+Baggage: If a booking is deleted (cancelled trip), the baggage records are automatically removed. This prevents keeping "leftover" data that no longer belongs to an active booking.
+
+Delay Logs: If a flight is deleted from the system, its delay history is no longer needed. The cascade keeps the database clean.
+
+5.The most complex query 
+Multiple Joins: In queries like Medium Level #4, you connect three tables (Flight_Delay_Log, Flight, and Airline_Operator) to show a delay reason alongside the actual Airline's name.
+
+Aggregation (Counting & Summing): In Medium Level #3, you use COUNT(Baggage_ID) and GROUP BY to calculate exactly how many bags each passenger has per booking.
+
+Filtering with HAVING: In Medium Level #7, you use HAVING COUNT(...) > 1. This is used to filter groups, specifically showing only the flights that have been delayed more than once
