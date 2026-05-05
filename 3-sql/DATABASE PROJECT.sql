@@ -299,12 +299,7 @@ HAVING COUNT(BookingID) > 1 ;
 
 
 
---9. Show the full details of all bookings — passenger name, flight number, origin airport, destination
---airport, class, and price paid
-SELECT P.PName as name, B.flight_number, F.IATA_Code_Departs as Departs , F.IATA_Code_Arrives as Arrives, B.Class, B.Price_Paid
-FROM Booking B
-JOIN Passenger P ON B.National_ID = P.National_ID
-JOIN Flight F ON B.flight_number = F.flight_number;
+
 
 --Advanced Level
 --1. Show each flight with its flight number, origin airport, destination airport, aircraft model, and the total
