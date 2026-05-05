@@ -76,6 +76,6 @@ Delay Logs: If a flight is deleted from the system, its delay history is no long
 5.The most complex query 
 Multiple Joins: I connect three tables (Flight_Delay_Log, Flight, and Airline_Operator) to show a delay reason alongside the actual Airline's name.
 
-Aggregation ): I use COUNT(Baggage_ID) and GROUP BY to calculate exactly how many bags each passenger has per booking.
+Aggregation : I use COUNT(Baggage_ID) and GROUP BY to calculate exactly how many bags each passenger has per booking.
 
 Filtering with HAVING: I use HAVING COUNT() > 1. This is used to filter groups, specifically showing only the flights that have been delayed more than once
