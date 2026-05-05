@@ -74,8 +74,8 @@ Baggage: If a booking is deleted (cancelled trip), the baggage records are autom
 Delay Logs: If a flight is deleted from the system, its delay history is no longer needed. The cascade keeps the database clean.
 
 5.The most complex query 
-Multiple Joins: In queries like Medium Level #4, you connect three tables (Flight_Delay_Log, Flight, and Airline_Operator) to show a delay reason alongside the actual Airline's name.
+Multiple Joins: I connect three tables (Flight_Delay_Log, Flight, and Airline_Operator) to show a delay reason alongside the actual Airline's name.
 
-Aggregation (Counting & Summing): In Medium Level #3, you use COUNT(Baggage_ID) and GROUP BY to calculate exactly how many bags each passenger has per booking.
+Aggregation ): I use COUNT(Baggage_ID) and GROUP BY to calculate exactly how many bags each passenger has per booking.
 
-Filtering with HAVING: In Medium Level #7, you use HAVING COUNT(...) > 1. This is used to filter groups, specifically showing only the flights that have been delayed more than once
+Filtering with HAVING: I use HAVING COUNT() > 1. This is used to filter groups, specifically showing only the flights that have been delayed more than once
