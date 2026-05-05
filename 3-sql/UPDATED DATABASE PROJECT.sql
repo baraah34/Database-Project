@@ -67,7 +67,7 @@ INSERT INTO Departure_Gate (gate_code, terminal_name, Airport_ID, flight_number)
 ('C02', 'Terminal 5', 3, 'SK808'); 
 
 --3. Update at least 6 existing flights to assign them an airline and a gate. Use UPDATE statements for
---this — do not re-insert the flights.
+--this â€” do not re-insert the flights.
 
 UPDATE Flight SET Airline_ID = 1 WHERE flight_number = 'SK101';
 UPDATE Flight SET Airline_ID = 2 WHERE flight_number = 'SK202';
@@ -141,7 +141,7 @@ WHERE g.gate_code IS NULL;
 SELECT f.flight_number, ao.Full_name, dg.gate_code
 FROM Flight f
 JOIN Airline_Operator ao ON f.Airline_ID = ao.Airline_ID
-LEFT JOIN Departure_Gate dg ON f.flight_number = dg.flight_number;
+JOIN Departure_Gate dg ON f.flight_number = dg.flight_number;
 
 --2. List all baggage items along with the passenger name and flight number they are linked to.
 SELECT b.tag_number, p.PName as passenger_name, bo.flight_number
